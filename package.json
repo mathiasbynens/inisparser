@@ -2,7 +2,7 @@
   "name": "inisparser",
   "version": "0.0.1",
   "description": "parse INIS special character formatting",
-  "keywords": ["inis", "encoding", "osti"],
+  "keywords": ["inis", "encoding", "osti", "convert"],
   "author": "Darel Finkbeiner",
   "license": "MIT",
   "scripts": {
