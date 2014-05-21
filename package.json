@@ -1,0 +1,22 @@
+{
+  "name": "inisparser",
+  "version": "0.0.1",
+  "description": "parse INIS special character formatting",
+  "keywords": ["inis", "encoding", "osti"],
+  "author": "Darel Finkbeiner",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "tape": "^2.12.3"
+  },
+  "homepage": "https://github.com/darelf/inisparser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darelf/inisparser.git"
+  },
+  "dependencies": {
+    "ent": "^2.0.0"
+  }
+}
