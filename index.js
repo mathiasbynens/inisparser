@@ -1,4 +1,4 @@
-var ent = require('ent')
+var he = require('he')
 
 var code_map = {
   "Alpha": "#ALPHA#",
@@ -92,7 +92,7 @@ var utf_map = {
   "minus": "-" ,
   "center_dot": "·",
   "dagger": "†",
-  
+
   "sup 0": "°" , // The degree symbol?
   "sup degree": "°" ,
   "sup 1": "¹" ,
@@ -331,7 +331,7 @@ function expand(s) {
     s = s.replace(new RegExp(toReplace), replacement)
     match = rsup.exec(s)
   }
-   
+
   var match = rsub.exec(s)
   while ( match != null ) {
     var replacement = ''
@@ -347,19 +347,19 @@ function expand(s) {
 
 function convertOSTISpecials(input_string) {
   if (!input_string) return
-  var s = ent.decode(input_string)
+  var s = he.decode(input_string)
   s = expand(s)
 
   for (var r in utf_map) {
     s = s.replace(new RegExp("\{" + RegExp.escape(r) + "\}",'g'), utf_map[r])
   }
-  
+
   return s
 }
 
 function parseINIStoOSTI(input_string) {
   if (!input_string) return
-  var s = ent.decode(input_string)
+  var s = he.decode(input_string)
   var osti_map = invert(code_map)
   for (var r in osti_map) {
     s = s.replace(new RegExp(RegExp.escape(r),'g'), '{' + osti_map[r] + '}')
@@ -409,7 +409,7 @@ function parseINIStoOSTI(input_string) {
 
 function parseOSTItoINIS(input_string) {
   if (!input_string) return
-  var s = ent.decode(input_string)
+  var s = he.decode(input_string)
   for (var r in code_map) {
     s = s.replace(new RegExp("\{" + RegExp.escape(r) + "\}",'g'), code_map[r])
   }
